@@ -5,9 +5,9 @@ import sklearn
 from sklearn.linear_model import LogisticRegression
 
 def main():
-   # path = 'finalized_model.sav'
+    path = 'C:/Users/user/OneDrive/Desktop/MiniProject/trained_model.sav'
     
-    #diabetes_model = pickle.load(open(path, 'rb'))
+    diabetes_model = pickle.load(open(path, 'rb'))
     
     # page title
     st.title('Heart Disease Detection using ML')
