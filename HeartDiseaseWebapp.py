@@ -17,43 +17,43 @@ def main():
     col1, col2, col3, col4 = st.columns(4)
         
     with col1:
-        Age = st.text_input('Age')
+        HighBp = st.text_input('High BP (0 no / 1 yes)')
             
     with col2:
-        Gender = st.text_input('Gender (0 female /1 male)')
+        HighChol = st.text_input('High cholestrol (0 no /1 yes)')
         
     with col3:
-        cp = st.text_input('Chest Pain level(0-3)')
+        BMI = st.text_input('BMI (12-98)')
         
     with col4:
-        restingbp = st.text_input('Blood Pressure ')
+        Smoker = st.text_input('Do you smoke (0 no / 1 yes) ')
         
     with col1:
-        chol = st.text_input('Cholestrol Level')
+        Stroke = st.text_input('Stroke (0 no / 1 yes)')
         
     with col2:
-        fbs = st.text_input('fbs value')
+        Diabetes = st.text_input('Diabetes (0, 1, 2)')
 
     with col3:
-        restecg = st.text_input('restecg value')
+        PhysActivity = st.text_input('physical activity (0 no / 1 yes)')
 
     with col4:
-        thalach = st.text_input('thalac value')
+        HvyAlcoholConsump = st.text_input('Alcoholic (0 no / 1 yes)')
 
     with col1:
-        exang = st.text_input('exangio value')
+        GenHlth = st.text_input('GenHlth (1-5)')
 
     with col2:
-        oldpeak = st.text_input('oldpeak value')
+        PhysHlth = st.text_input('PhysHlth (0-30)')
 
     with col3:
-        slope = st.text_input('slope value')
+        Diffwalk = st.text_input('Difficulty in walking (0 no / 1 yes)')
 
     with col4:
-        ca = st.text_input('ca value')
+        Gender = st.text_input('Gender (0 female / 1 male)')
 
     with col1:
-        thal = st.text_input('thal value')
+        Age = st.text_input('Age')
         
         
     # code for Prediction
@@ -62,19 +62,19 @@ def main():
     # creating a button for Prediction
     
     if st.button('Diabetes Test Result'):
-        input_data = [int(Age),
+        input_data = [int(HighBp),
+                      int(HighChol),
+                      int(BMI),
+                      int(Smoker),
+                      int(Stroke),
+                      int(Diabetes),
+                      int(PhysActivity),
+                      int(HvyAlcoholConsump),
+                      int(GenHlth),
+                      int(PhysHlth),
+                      int(Diffwalk),
                       int(Gender),
-                      int(cp),
-                      int(restingbp),
-                      int(chol),
-                      int(fbs),
-                      int(restecg),
-                      int(thalach),
-                      int(exang),
-                      float(oldpeak),
-                      int(slope),
-                      int(ca),
-                      int(thal)]
+                      int(Age)]
         data = np.asarray(input_data)
         data_reshaped = data.reshape(1,-1)
         '''diab_prediction = diabetes_model.predict(data_reshaped)
@@ -83,10 +83,10 @@ def main():
         max_prob = np.round(prob, 3)'''
     
         if (diab_prediction[0] == 1):
-            diab_diagnosis = 'The person is diabetic. Estimated risk: {} %'.format(float(max_prob) *100)
+            diab_diagnosis = 'The person may have heart disease'
             
         else:
-            diab_diagnosis = 'The person is not diabetic '
+            diab_diagnosis = 'The person may not have heart disease'
         
     st.success(diab_diagnosis)
 
