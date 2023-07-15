@@ -5,7 +5,7 @@ import sklearn
 from sklearn.linear_model import LogisticRegression
 
 def main():
-    #path = 'finalized_model.sav'
+   # path = 'finalized_model.sav'
     
     #diabetes_model = pickle.load(open(path, 'rb'))
     
