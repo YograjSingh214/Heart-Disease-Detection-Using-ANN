@@ -7,7 +7,7 @@ from sklearn.linear_model import LogisticRegression
 def main():
     path = 'C:/Users/user/OneDrive/Desktop/MiniProjec/trained_model.sav'
     
-    diabetes_model = pickle.load(open(path, 'rb'))
+    diabetes_model = joblib.load(open(path, 'rb'))
     
     # page title
     st.title('Heart Disease Detection using ML')
