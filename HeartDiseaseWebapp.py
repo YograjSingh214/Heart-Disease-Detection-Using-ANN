@@ -1,4 +1,4 @@
-import pickle
+import pickle as pkl
 import streamlit as st
 import numpy as np
 import sklearn
@@ -7,7 +7,7 @@ from sklearn.linear_model import LogisticRegression
 def main():
     path = 'trained_model.sav'
     
-    diabetes_model = pickle.load(open(path, 'rb'))
+    diabetes_model = pkl.load(open(path, 'rb'))
     
     # page title
     st.title('Heart Disease Detection using ML')
@@ -78,9 +78,10 @@ def main():
         data = np.asarray(input_data)
         data_reshaped = data.reshape(1,-1)
         '''diab_prediction = diabetes_model.predict(data_reshaped)
-        diab_percentage = diabetes_model.predict_proba(data_reshaped)
-        prob = np.max(diab_percentage, axis=1)
-        max_prob = np.round(prob, 3)'''
+        # diab_percentage = diabetes_model.predict_proba(data_reshaped)
+        # prob = np.max(diab_percentage, axis=1)
+        # max_prob = np.round(prob, 3)
+        '''
     
         if (diab_prediction[0] == 1):
             diab_diagnosis = 'The person may have heart disease'
